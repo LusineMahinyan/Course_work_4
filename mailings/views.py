@@ -1,29 +1,68 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.shortcuts import get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 from .models import Mailing
+from .services import send_mailing
+from django.core.cache import cache
 
 
-class MailingListView(ListView):
+class MailingListView(LoginRequiredMixin, ListView):
     model = Mailing
     template_name = "mailings/mailing_list.html"
 
+    def get_queryset(self):
+        user = self.request.user
+        cache_key = f"mailings_{user.id}"
 
-class MailingCreateView(CreateView):
+        mailings = cache.get(cache_key)
+
+        if not mailings:
+            mailings = Mailing.objects.filter(user=user)
+            cache.set(cache_key, mailings, 60)
+
+        return mailings
+
+
+class MailingCreateView(LoginRequiredMixin, CreateView):
     model = Mailing
     fields = ["start_time", "end_time", "message", "recipients"]
     success_url = reverse_lazy("mailing_list")
     template_name = "mailings/mailing_form.html"
 
+    def form_valid(self, form):
+        # привязываем рассылку к пользователю
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
-class MailingUpdateView(UpdateView):
+
+class MailingUpdateView(LoginRequiredMixin, UpdateView):
     model = Mailing
     fields = ["start_time", "end_time", "message", "recipients"]
     success_url = reverse_lazy("mailing_list")
     template_name = "mailings/mailing_form.html"
 
+    def get_queryset(self):
+        return Mailing.objects.filter(user=self.request.user)
 
-class MailingDeleteView(DeleteView):
+
+class MailingDeleteView(LoginRequiredMixin, DeleteView):
     model = Mailing
     success_url = reverse_lazy("mailing_list")
     template_name = "mailings/mailing_confirm_delete.html"
-    
+
+    def get_queryset(self):
+        return Mailing.objects.filter(user=self.request.user)
+
+@login_required
+def run_mailing(request, pk):
+    mailing = get_object_or_404(Mailing, pk=pk)
+
+    try:
+        send_mailing(mailing)
+    except Exception:
+        pass
+
+    return redirect("mailing_list")

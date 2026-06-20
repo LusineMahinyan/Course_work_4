@@ -5,8 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27d1ee37-08aa-4126-996e-f8bb0e7f5292" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/mailings/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/templates/core/core/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mailings/services.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/templates/users/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/templates/users/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailings/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailings/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailings/templates/mailings/mailing_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mailings/templates/mailings/mailing_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailings/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailings/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mailings/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailings/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>

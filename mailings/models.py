@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
+
 from clients.models import Client
 
 
@@ -12,13 +14,19 @@ class Message(models.Model):
 
 
 class Mailing(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="mailings"
+    )
+
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
 
     message = models.ForeignKey(Message, on_delete=models.CASCADE)
     recipients = models.ManyToManyField(Client)
 
-    def get_status(self):
+    def status(self):
         now = timezone.now()
 
         if now < self.start_time:

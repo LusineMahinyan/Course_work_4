@@ -11,6 +11,8 @@
 
       <a href="{% url 'mailing_update' mailing.id %}">редактировать</a>
       <a href="{% url 'mailing_delete' mailing.id %}">удалить</a>
+
+      <a href="{% url 'mailing_run' mailing.id %}">▶ Запустить</a>
     </li>
   {% endfor %}
 </ul>
