@@ -1,0 +1,16 @@
+<h1>Рассылки</h1>
+
+<a href="{% url 'mailing_create' %}">Создать рассылку</a>
+
+<ul>
+  {% for mailing in object_list %}
+    <li>
+      {{ mailing.message.subject }}
+      | {{ mailing.start_time }} - {{ mailing.end_time }}
+      | {{ mailing.get_status }}
+
+      <a href="{% url 'mailing_update' mailing.id %}">редактировать</a>
+      <a href="{% url 'mailing_delete' mailing.id %}">удалить</a>
+    </li>
+  {% endfor %}
+</ul>
