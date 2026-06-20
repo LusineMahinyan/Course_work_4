@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27d1ee37-08aa-4126-996e-f8bb0e7f5292" name="Changes" comment="" />
+    <list default="true" id="27d1ee37-08aa-4126-996e-f8bb0e7f5292" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/attempts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/attempts/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/attempts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/attempts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/clients/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/clients/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailings/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailings/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailings/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailings/models.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +21,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "LusineMahinyan"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/LusineMahinyan/Course_work_4.git",
+    "accountId": "3d7655e9-0b32-4de0-b72a-8d043fc5e0ca"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 6
 }]]></component>
