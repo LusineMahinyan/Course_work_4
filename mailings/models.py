@@ -26,6 +26,7 @@ class Mailing(models.Model):
     message = models.ForeignKey(Message, on_delete=models.CASCADE)
     recipients = models.ManyToManyField(Client)
 
+    @property
     def status(self):
         now = timezone.now()
 

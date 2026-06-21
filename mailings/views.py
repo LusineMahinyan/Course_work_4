@@ -1,11 +1,11 @@
+from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Mailing
-from .services import send_mailing
+from django.http import HttpResponseForbidden
 from django.core.cache import cache
 
 
@@ -33,10 +33,8 @@ class MailingCreateView(LoginRequiredMixin, CreateView):
     template_name = "mailings/mailing_form.html"
 
     def form_valid(self, form):
-        # привязываем рассылку к пользователю
         form.instance.user = self.request.user
         return super().form_valid(form)
-
 
 class MailingUpdateView(LoginRequiredMixin, UpdateView):
     model = Mailing
@@ -60,9 +58,8 @@ class MailingDeleteView(LoginRequiredMixin, DeleteView):
 def run_mailing(request, pk):
     mailing = get_object_or_404(Mailing, pk=pk)
 
-    try:
-        send_mailing(mailing)
-    except Exception:
-        pass
+    if mailing.user != request.user:
+        return HttpResponseForbidden("Нет доступа")
+
 
     return redirect("mailing_list")
