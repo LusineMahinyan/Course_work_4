@@ -15,11 +15,14 @@ class MailingListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         user = self.request.user
-        cache_key = f"mailings_{user.id}"
 
+        if user.groups.filter(name="Manager").exists():
+            return Mailing.objects.all()
+
+        cache_key = f"mailings_{user.id}"
         mailings = cache.get(cache_key)
 
-        if not mailings:
+        if mailings is None:
             mailings = Mailing.objects.filter(user=user)
             cache.set(cache_key, mailings, 60)
 
